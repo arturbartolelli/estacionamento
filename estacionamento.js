@@ -1,3 +1,5 @@
+import  verificarEstado from "./utils/verifica.js";
+
 const enviar = document.querySelector("#botaoEntrada");
 
 var estacionamento = [];
@@ -63,12 +65,9 @@ console.log(calculaPreco(0, 15))
 
 let str = "OZW 0A01";
 
-function verificarEstado (placaVeh){
-    
-}
 
 
-
+console.log(verificarEstado(str))
 
 
 
