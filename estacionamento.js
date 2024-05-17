@@ -59,19 +59,6 @@ console.log(calculaPreco(0, 15))
 //OWH 0A01 a OXK 9J99 Minas Gerais (MG) 5ª sequência
 //PUA 0A01 a PZZ 9J99 Minas Gerais (MG) 6ª sequência
 //QMQ 0A01 a QQZ 9J99 Minas Gerais (MG) 7ª sequência
-//KAV 0A01 a KFC 9J99 Goiás (GO)
-//NFC 0A01 a NGZ 9J99 Goiás (GO) 2ª sequência
-//NJX 0A01 a NLU 9J99 Goiás (GO) 3ª sequência
-//NVO 0A01 a NWR 9J99 Goiás (GO) 4ª sequência
-//OGH 0A01 a OHA 9J99 Goiás (GO) 5ª sequência
-//OMI 0A01 a OOF 9J99 Goiás (GO) 6ª sequência
-//PQA 0A01 a PRZ 9J99 Goiás (GO) 7ª sequência
-//QRC 0A01 a QTX 9J99 Goiás (GO) 8ª sequência
-
-//---- Fazendo esta parte primeiro -----
-//JDP 0A01 a JKR 9J99 Distrito Federal (DF)
-//OVM 0A01 a OVV 9J99 Distrito Federal (DF) 2ª sequência
-//OZW 0A01 a PBZ 9J99 Distrito Federal (DF) 3ª sequência
 
 
 let str = "OZW 0A01";
