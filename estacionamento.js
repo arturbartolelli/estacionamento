@@ -1,6 +1,9 @@
-import  verificarEstado from "./utils/verifica.js";
-
+import verificarPlacaEstado from "./utils/verifica.js";
 const enviar = document.querySelector("#botaoEntrada");
+
+
+let str = "OZW 0A01"; 
+console.log(verificarPlacaEstado(str))
 
 var estacionamento = [];
 var horaEntrada, horaSaida;
@@ -48,26 +51,9 @@ function calculaPreco(hIn, hOut) {
         }
     }    
 }
-
 console.log(calculaPreco(0, 15))
 
 
-
-//////////////////////////////
-//GKJ 0A01 a HOK 9J99 Minas Gerais (MG)
-//NXX 0A01 a NYG 9J99 Minas Gerais (MG) 2ª sequência
-//OLO 0A01 a OMH 9J99 Minas Gerais (MG) 3ª sequência
-//OOV 0A01 a ORC 9J99 Minas Gerais (MG) 4ª sequência
-//OWH 0A01 a OXK 9J99 Minas Gerais (MG) 5ª sequência
-//PUA 0A01 a PZZ 9J99 Minas Gerais (MG) 6ª sequência
-//QMQ 0A01 a QQZ 9J99 Minas Gerais (MG) 7ª sequência
-
-
-let str = "OZW 0A01";
-
-
-
-console.log(verificarEstado(str))
 
 
 

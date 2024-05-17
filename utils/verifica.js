@@ -1,5 +1,5 @@
 
-function verificarPlacaEstado(plate) {
+export default function verificarPlacaEstado(plate) {
 
     const dfSequencesDF = [
         {start: "JDP0A01", end: "JKR9J99"},
@@ -44,6 +44,4 @@ function verificarPlacaEstado(plate) {
     }
     return false;
 }
-console.log(verificarPlacaEstado("JDP 0A01"));  // Deve retornar true
-console.log(verificarPlacaEstado("PCX 9A78"));  // Deve retornar false
-console.log(verificarPlacaEstado("KBD 3C98"));
+
