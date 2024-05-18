@@ -25,7 +25,7 @@ export class Intervalo {
             let res = this.minhour - (this.hour*60+ this.minute)
             clearInterval(this.intervalo);
             this.intervalo = null;
-            return `Intervalo de tempo: ${res}`
+            return `Intervalo de tempo: ${res/60}:${res%60}`
         } else {
             console.log("O intervalo já foi parado.");
         }
