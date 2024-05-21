@@ -18,7 +18,20 @@
             <button id="botaoEntrada"> Enviar </button>
         </form>
     </div>
+    <dialog id="dialog-box">
+        <div class="ticket">
+           <span id="modalTitle">Ticket de Estacionamento</span>
+            <ul>
+                <li>Placa: <span class="placa">estado</span></li>
+                <li>Estado: </li><span class="estado"></span>
+                <li>Tempo total: <span id="tempoTotal">0</span></li>
+                <li>Valor total: <span id="valorTotal">0</span></li>
+            </ul>
+        </div>
+        <button id="btnClose">Close</button>
+    </dialog>
     
+    <button id="btnModal">Show</button>
 </body>
 <script src="estacionamento.js"></script>
 
