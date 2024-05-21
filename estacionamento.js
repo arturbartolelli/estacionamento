@@ -3,6 +3,20 @@ const enviar = document.querySelector("#botaoEntrada");
 var estacionamento = [];
 var horaEntrada, horaSaida;
 
+const modal = document.getElementById("dialog-box")
+const btnModal = document.getElementById("btnModal")
+const btnCloseModal = document.getElementById("btnClose")
+
+
+btnModal.onclick = () => {
+    modal.style.display = "block";
+}
+
+btnCloseModal.onclick = () => {
+    modal.style.display = "none";
+}
+
+
 const pegarHoraEntrada = () => {
     let tempo = new Date;
     let horaIn = tempo.getHours();
