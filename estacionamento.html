@@ -17,8 +17,29 @@
             <span>Placa do carro</span>
             <button id="botaoEntrada"> Enviar </button>
         </form>
+        <div id="contador">
+            
+        </div>
     </div>
     
+    <dialog id="dialog-box">
+        <div class="ticket">
+           <span id="modalTitle">Ticket de Estacionamento</span>
+            <ul>
+                <li>Placa: <span class="placa"></span></li>
+                <li>Estado: </li><span class="estado"></span>
+                <li>Tempo total: <span id="tempoTotal"></span></li>
+                <li>Valor total: <span id="valorTotal"></span></li>
+                <li>Posição do carro: <span id="posicao"></span></li>
+            </ul>
+        </div>
+        <button id="btnClose">Fechar</button>
+    </dialog>
+    
+
+    <div id="grid">
+        
+    </div>
 </body>
 <script src="estacionamento.js"></script>
 
