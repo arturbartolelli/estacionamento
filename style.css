@@ -1,4 +1,4 @@
-body {
+.title {
     background-color: #080808;
 }
 .title {
@@ -12,6 +12,7 @@ body {
     font-weight: 500;
     box-shadow: 0px 15px 20px rgba(23, 88, 39, 0.4);
 }
+
 
 .formContainer {
     margin-left: auto;

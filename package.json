@@ -1,0 +1,14 @@
+{
+  "name": "estacionamento",
+  "version": "1.0.0",
+  "description": "15 min de tolerancia\r x = R$ ate 3 horas -----  função teto deve ser utilizada\r +y/ hora subsequente ou fraçao\r ao informar a placa, a posição da matriz deve ficar livre\r matriz mxn",
+  "main": "estacionamento.js",
+  "type": "module",
+  "module": "ES",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
