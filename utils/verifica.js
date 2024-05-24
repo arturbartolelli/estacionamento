@@ -4,7 +4,8 @@ export default function verificarPlacaEstado(plate) {
     const dfSequencesDF = [
         {start: "JDP0A01", end: "JKR9J99"},
         {start: "OVM0A01", end: "OVV9J99"}, 
-        {start: "OZW0A01", end: "PBZ9J99"}   
+        {start: "OZW0A01", end: "PBZ9J99"},
+        {start: "REC0A01", end: "REV9J99"},   
     ];
     const dfSequencesMG = [
         {start: "GKJ0A01", end: "HOK9J99"},
@@ -13,7 +14,12 @@ export default function verificarPlacaEstado(plate) {
         {start: "OOV0A01", end: "ORC9J99"},
         {start: "OWH0A01", end: "OXK9J99"}, 
         {start: "PUA0A01", end: "PZZ9J99"}, 
-        {start: "QMQ0A01", end: "QQZ9J99"}  
+        {start: "QMQ0A01", end: "QQZ9J99"},
+        {start: "QUA0A01", end: "QUZ9J99"},
+        {start: "QWR0A01", end: "QXZ9J99"},
+        {start: "RFA0A01", end: "RGD9J99"},
+        {start: "RMD0A01", end: "RNZ9J99"},
+        {start: "RTA0A01", end: "RVZ9J99"} 
     ];
     const dfSequencesGO = [
         {start: "KAV0A01", end: "KFC9J99"},
@@ -23,7 +29,9 @@ export default function verificarPlacaEstado(plate) {
         {start: "OGH0A01", end: "OHA9J99"}, 
         {start: "OMI0A01", end: "OOF9J99"}, 
         {start: "PQA0A01", end: "PRZ9J99"},
-        {start: "QRC0A01", end: "QTX9J99"}   
+        {start: "QTN0A01", end: "QTS9J99"},
+        {start: "RBK0A01", end: "RCN9J99"},
+        {start: "SBW0A01", end: "SDS9J99"},  
     ];
     plate = plate.replace(/ /g, "").toUpperCase();
 

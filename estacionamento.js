@@ -1,10 +1,6 @@
-<<<<<<< HEAD
+
 import verificarPlacaEstado from "./utils/verifica.js";
 const enviar = document.querySelector("#botaoEntrada");
-=======
-const enviar = document.getElementById("botaoEntrada");
->>>>>>> 26d172ccfb77d3762cfbab6e8d05025f88b3a01f
-
 
 let str = "OZW 0A01"; 
 console.log(verificarPlacaEstado(str))
@@ -156,11 +152,7 @@ function calculaPreco(hIn, hOut) {
         }
     }    
 }
-<<<<<<< HEAD
 console.log(calculaPreco(0, 15))
-=======
-
-
 class Carro { 
     constructor(placa) {
         this.placa = placa;
@@ -168,7 +160,6 @@ class Carro {
     }
 }
 
->>>>>>> 26d172ccfb77d3762cfbab6e8d05025f88b3a01f
 
 
 
