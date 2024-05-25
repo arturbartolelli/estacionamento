@@ -1,3 +1,6 @@
+body {
+    background-color: #080808;
+}
 .title {
     background-color: #080808;
 }
@@ -109,6 +112,7 @@ button:active {
 }
 
 dialog {
+    z-index: 2;
     height: 12rem;
     width: 20rem;
     border-radius: 15px;
@@ -142,22 +146,24 @@ position: absolute;
 
 /* teste */
 #grid {
-    display: flex;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     background-color: #333;
-    display: grid;
-        /* width: fit-content;
-        height: fit-content; */
+    width: fit-content;
+    height: fit-content;
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
     border-radius: 20px;
-    flex-direction: row;
   }
   
   .card1 {
+    z-index: 1;
     overflow: visible;
+    margin: 10px;
     width: 190px;
     height: 254px;
     }
