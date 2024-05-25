@@ -4,12 +4,6 @@ import verificarPlacaEstado from "./utils/verifica.js";
 const enviar = document.getElementById("botaoEntrada");
 
 
-//teste
-let str = "OZW 0A01"; 
-console.log(verificarPlacaEstado(str))
-
-
-var horaEntrada, horaSaida;
 let matriz = new Array(10).fill().map(() => new Array(10).fill(null));
 
 let vagas = 100
@@ -171,7 +165,6 @@ function calculaPreco(hIn, hOut) {
         }
     }    
 }
-
 
 class Carro { 
     constructor(placa, estado, entrada, saida) {
