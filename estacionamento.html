@@ -13,7 +13,7 @@
     <h1 class="title">ESTACIONAMENTO</h1>
     <div class="formContainer">
         <form class="formField">
-            <input type="text" name="f_placa" id="placa" value="">
+            <input type="text" name="f_placa" id="placa" value="RTA0A01">
             <span>Placa do carro</span>
             <button id="botaoEntrada"> Enviar </button>
         </form>
@@ -26,11 +26,11 @@
         <div class="ticket">
            <span id="modalTitle">Ticket de Estacionamento</span>
             <ul>
-                <li>Placa: <span class="placa"></span></li>
-                <li>Estado: </li><span class="estado"></span>
-                <li>Tempo total: <span id="tempoTotal"></span></li>
-                <li>Valor total: <span id="valorTotal"></span></li>
-                <li>Posição do carro: <span id="posicao"></span></li>
+                <li><span class="placa"></span></li>
+                <li><span class="estado"></span></li>
+                <li><span class="posicao"></span></li>
+                <li>Tempo total: <span class="tempoTotal"></span></li>
+                <li>Valor total: <span class="valorTotal"></span></li>
             </ul>
         </div>
         <button id="btnClose">Fechar</button>
@@ -41,6 +41,6 @@
         
     </div>
 </body>
-<script src="estacionamento.js"></script>
+<script type="module" src="estacionamento.js"></script>
 
 </html> 

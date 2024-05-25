@@ -1,21 +1,26 @@
-<<<<<<< HEAD
+
 import verificarPlacaEstado from "./utils/verifica.js";
-const enviar = document.querySelector("#botaoEntrada");
-=======
+
 const enviar = document.getElementById("botaoEntrada");
->>>>>>> 26d172ccfb77d3762cfbab6e8d05025f88b3a01f
 
 
+//teste
 let str = "OZW 0A01"; 
 console.log(verificarPlacaEstado(str))
 
-var estacionamento = [];
+
 var horaEntrada, horaSaida;
 let matriz = new Array(10).fill().map(() => new Array(10).fill(null));
 
 let vagas = 100
 
 const modal = document.getElementById("dialog-box")
+const infoPlaca = modal.getElementsByClassName("placa")[0]
+const infoEstado = modal.getElementsByClassName("estado")[0]
+const infoPosicao = modal.getElementsByClassName("posicao")[0]
+const infoTempo = modal.getElementsByClassName("tempoTotal")[0]
+const infoValor = modal.getElementsByClassName("valorTotal")[0]
+
 const closeModal = document.getElementById("btnClose")
 const contador = document.getElementById("contador")
 
@@ -45,6 +50,17 @@ const criarDiv = (carro) => {
     return card;
 }
 
+const encontrarCarro = (carro, matriz) => {
+    for (let i = 0; i < matriz.length; i++) {
+        for (let j = 0; j < matriz[i].length; j++) {
+            if (matriz[i][j] === carro) {
+                return [i, j];
+            }
+        }
+    }
+    return null;
+}
+
 const adicionarCarro = () => {
     contador.innerHTML = `Vagas: ${--vagas}`
     grid.innerHTML = "";
@@ -52,17 +68,21 @@ const adicionarCarro = () => {
     matriz.forEach((linha, i) => {
         linha.forEach((carro, j) => {
             if (carro !== null) {
+
                 const div = criarDiv(carro);
-                div.setAttribute("data-posicao", `${i}-${j}`);
+
+                console.log(carro.linha, carro.coluna)
+                console.log(matriz)
 
                 const btnRemove = document.createElement("button");
                 btnRemove.setAttribute("class", "btnRemove");
                 btnRemove.innerHTML = "X";
                 btnRemove.addEventListener("click", (evt) => {
-                    const linha = parseInt(posicao[0]);
-                    const coluna = parseInt(posicao[1]);
+
                     modal.style.display = "block"
-                    removeCarro(linha, coluna);
+                    addModal(carro)
+                    removeCarro(carro.linha, carro.coluna);
+
                 });
 
                 div.querySelector('.back-content').appendChild(btnRemove);
@@ -74,41 +94,11 @@ const adicionarCarro = () => {
     
 };
 
-
-const removeCarro = (linha, coluna) => {
-    matriz[linha][coluna] = null;
+const addModal = (carro) => {
+    infoPlaca.innerHTML = `Placa: ${carro.placa}`
+    infoEstado.innerHTML = `Estado: ${carro.estado}`
+    infoPosicao.innerHTML = `Posição: ${carro.linha} x ${carro.coluna}`
 }
-
-closeModal.addEventListener("click", () => {
-    modal.style.display = "none"
-    console.log(matriz)
-})
-
-const pegarHoraEntrada = () => {
-    let tempo = new Date;
-    let horaIn = tempo.getHours();
-    let minIn = tempo.getMinutes();
-    
-    horaEntrada = horaIn*60 + minIn;
-}
-
-const pegarHoraSaida = () => {
-    let tempo = new Date;
-    let horaIn = tempo.getHours();
-    let minIn = tempo.getMinutes();
-    
-    horaSaida = horaIn*60 + minIn;
-}
-
-const criarCarro = (event) => {
-    event.preventDefault()
-    const placa = document.querySelector('#placa').value;
-    // pegarHoraEntrada();
-    const carro = new Carro(placa)
-    const posicaoCarro = inserirCarroAleatoriamente(carro, matriz)
-    carro.posicao = posicaoCarro
-    adicionarCarro()
-};
 
 const inserirCarroAleatoriamente = (carro, matriz) => {
     let min = 0;
@@ -121,19 +111,38 @@ const inserirCarroAleatoriamente = (carro, matriz) => {
     } while (matriz[linha][coluna] !== null);
 
     matriz[linha][coluna] = carro;
-    return { linha, coluna };
 }
 
-const encontrarCarro = (carro, matriz) => {
-    for (let i = 0; i < matriz.length; i++) {
-        for (let j = 0; j < matriz[i].length; j++) {
-            if (matriz[i][j] === carro) {
-                return { linha: i, coluna: j };
-            }
-        }
+const criarCarro = (event) => {
+    
+    event.preventDefault()
+    const placa = document.querySelector('#placa').value;
+
+    if(verificarPlacaEstado(placa)) {
+        const carro = new Carro(placa)
+        carro.estado = verificarPlacaEstado(placa)
+        
+        inserirCarroAleatoriamente(carro, matriz)
+
+        const posicao = encontrarCarro(carro, matriz)
+        const [linha, coluna] = posicao
+
+        carro.linha = linha
+        carro.coluna = coluna
+
+        adicionarCarro()
     }
-    return null;
+    
+};
+
+const removeCarro = (linha, coluna) => {
+    matriz[linha][coluna] = null;
 }
+
+closeModal.addEventListener("click", () => {
+    modal.style.display = "none"
+})
+
 
 enviar.addEventListener("click", criarCarro);
 
@@ -156,19 +165,21 @@ function calculaPreco(hIn, hOut) {
         }
     }    
 }
-<<<<<<< HEAD
-console.log(calculaPreco(0, 15))
-=======
 
 
 class Carro { 
     constructor(placa) {
         this.placa = placa;
-        this.posicao = {};
+        this.linha;
+        this.coluna;
+        this.estado = ''
+    }
+
+    info() {
+        return this.linha, this.coluna, this.estado, this.placa
     }
 }
 
->>>>>>> 26d172ccfb77d3762cfbab6e8d05025f88b3a01f
 
 
 
