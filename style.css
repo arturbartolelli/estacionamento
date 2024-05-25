@@ -121,8 +121,8 @@ dialog {
 }
 
 #dialog-box button {
-position: absolute;
-    bottom: 0;
+    position: absolute;
+    margin-top: 2%;
     margin-bottom: 10px;
     margin-left: 6rem;
 }

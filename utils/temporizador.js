@@ -11,17 +11,17 @@ export default function calculaPreco(ent, out) {
     let preco, soHoras;
 
     if(interval <= 15) {
-        return 0, interval;
+        return {preco: 0,interval: interval};
     } else {
         const tempoHoras = interval / 60;
         soHoras = Math.ceil(tempoHoras)
 
         if(soHoras <= 3) {
             preco = 10;
-            return preco, interval
+            return {preco: preco,interval: interval}
         } else {
             preco = 10 + ((soHoras - 3) * 3)
-            return preco, interval
+            return {preco: preco,interval: interval}
         }
     }    
 }
