@@ -3,3 +3,5 @@ export default function isPlate(str){
 
         return plate.test(str)?true:false;
 }
+
+

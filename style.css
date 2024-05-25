@@ -18,6 +18,8 @@ body {
 
 
 .formContainer {
+    display: flex;
+    flex-direction: column;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
@@ -25,7 +27,7 @@ body {
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
     background-color: rgba(58, 167, 87, 0.4);
-    width: 26rem;
+    width: fit-content;
     height: fit-content;    
     border-radius: 10px;
     box-shadow: 0px 15px 20px rgba(23, 88, 39, 0.4);
@@ -84,7 +86,6 @@ body {
 }
 
 button {
-    margin-left: 10px;
     padding: 1.3em 3em;
     font-size: 12px;
     text-transform: uppercase;
@@ -247,6 +248,7 @@ position: absolute;
     }
 
 #contador {
+    margin-top: 10px;
     position: relative;
     background-color: #fff;
     width: fit-content;

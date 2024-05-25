@@ -4,12 +4,6 @@ import verificarPlacaEstado from "./utils/verifica.js";
 const enviar = document.getElementById("botaoEntrada");
 
 
-//teste
-let str = "OZW 0A01"; 
-console.log(verificarPlacaEstado(str))
-
-
-var horaEntrada, horaSaida;
 let matriz = new Array(10).fill().map(() => new Array(10).fill(null));
 
 let vagas = 100
@@ -61,6 +55,12 @@ const encontrarCarro = (carro, matriz) => {
     return null;
 }
 
+const removeCarro = (linha, coluna, div) => {
+    matriz[linha][coluna] = null;
+    grid.removeChild(div)
+    contador.innerHTML = `Vagas: ${++vagas}`
+}
+
 const adicionarCarro = () => {
     contador.innerHTML = `Vagas: ${--vagas}`
     grid.innerHTML = "";
@@ -81,8 +81,8 @@ const adicionarCarro = () => {
 
                     modal.style.display = "block"
                     addModal(carro)
-                    removeCarro(carro.linha, carro.coluna);
-
+                    removeCarro(carro.linha, carro.coluna,div);
+                    console.log(matriz)
                 });
 
                 div.querySelector('.back-content').appendChild(btnRemove);
@@ -117,10 +117,12 @@ const criarCarro = (event) => {
     
     event.preventDefault()
     const placa = document.querySelector('#placa').value;
+    const entrada = document.querySelector('#entrada').value;
+    const saida = document.querySelector('#saida').value;
+
 
     if(verificarPlacaEstado(placa)) {
-        const carro = new Carro(placa)
-        carro.estado = verificarPlacaEstado(placa)
+        const carro = new Carro(placa, verificarPlacaEstado(placa), entrada, saida)
         
         inserirCarroAleatoriamente(carro, matriz)
 
@@ -129,15 +131,13 @@ const criarCarro = (event) => {
 
         carro.linha = linha
         carro.coluna = coluna
-
+        console.log(carro.entrada, carro.saida)
         adicionarCarro()
     }
     
 };
 
-const removeCarro = (linha, coluna) => {
-    matriz[linha][coluna] = null;
-}
+
 
 closeModal.addEventListener("click", () => {
     modal.style.display = "none"
@@ -166,13 +166,16 @@ function calculaPreco(hIn, hOut) {
     }    
 }
 
-
 class Carro { 
-    constructor(placa) {
+    constructor(placa, estado, entrada, saida) {
         this.placa = placa;
         this.linha;
         this.coluna;
-        this.estado = ''
+        this.estado = estado;
+        this.entrada = entrada;
+        this.saida = saida;
+        this.tempoTotal;
+        this.preco;
     }
 
     info() {

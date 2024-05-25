@@ -1,41 +1,27 @@
 
+export default function calculaPreco(ent, out) {
+    let [hE, mE] = ent.split(":").map(Number);
+    let [hS, mS] = out.split(":").map(Number);
 
-export class Intervalo {
-    constructor() {
-    this.intervalo = null;
-    }
-    iniciar() {
-        if(this.intervalo === null) {
-        this.now = new Date()
-        this.hour = this.now.getHours();
-        this.minute = this.now.getMinutes();
-        this.minhour= this.hour*60 + this.minute
-       
-        this.intervalo = setInterval(() => {
-            console.log("Horário", this.minhour)
-            this.minhour +=1
-            }, 1000)
+    let minS = (hS*60) + mS
+    let minE = (hE*60) + mE
+
+    const interval = minS - minE
+
+    let preco, soHoras;
+
+    if(interval <= 15) {
+        return 0, interval;
+    } else {
+        const tempoHoras = interval / 60;
+        soHoras = Math.ceil(tempoHoras)
+
+        if(soHoras <= 3) {
+            preco = 10;
+            return preco, interval
         } else {
-            console.log("O intervalo já foi iniciado.");
+            preco = 10 + ((soHoras - 3) * 3)
+            return preco, interval
         }
-    }
-    parar() {
-        if(this.intervalo !== null) {
-            console.log("Último minuto:", this.minhour)
-            let res = this.minhour - (this.hour*60+ this.minute)
-            clearInterval(this.intervalo);
-            this.intervalo = null;
-            return `Intervalo de tempo: ${res/60}:${res%60}`
-        } else {
-            console.log("O intervalo já foi parado.");
-        }
-    }
+    }    
 }
-      
-
-
-
-
-
-
-
