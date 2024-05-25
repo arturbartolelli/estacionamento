@@ -1,5 +1,6 @@
 
 import verificarPlacaEstado from "./utils/verifica.js";
+import calculaPreco from "./utils/temporizador.js"
 
 const enviar = document.getElementById("botaoEntrada");
 
@@ -98,6 +99,8 @@ const addModal = (carro) => {
     infoPlaca.innerHTML = `Placa: ${carro.placa}`
     infoEstado.innerHTML = `Estado: ${carro.estado}`
     infoPosicao.innerHTML = `Posição: ${carro.linha} x ${carro.coluna}`
+    infoTempo.innerHTML = `Tempo total: ${carro.tempoTotal} minutos`
+    infoValor.innerHTML = `Valor total: R$ ${(carro.preco).toFixed(2)}`
 }
 
 const inserirCarroAleatoriamente = (carro, matriz) => {
@@ -125,14 +128,19 @@ const criarCarro = (event) => {
         const carro = new Carro(placa, verificarPlacaEstado(placa), entrada, saida)
         
         inserirCarroAleatoriamente(carro, matriz)
-
+        const valores = calculaPreco(entrada,saida)
+        carro.preco = valores.preco
+        carro.tempoTotal = valores.interval
+                
         const posicao = encontrarCarro(carro, matriz)
         const [linha, coluna] = posicao
 
         carro.linha = linha
         carro.coluna = coluna
-        console.log(carro.entrada, carro.saida)
+
         adicionarCarro()
+    } else {
+        alert("Não é uma placa de nenhum estado")
     }
     
 };
@@ -146,25 +154,6 @@ closeModal.addEventListener("click", () => {
 
 enviar.addEventListener("click", criarCarro);
 
-function calculaPreco(hIn, hOut) {
-    const tempoTotal = hOut - hIn
-    let preco, soHoras;
-
-    if(tempoTotal <= 15) {
-        return 0;
-    } else {
-        const tempoHoras = tempoTotal / 60;
-        soHoras = Math.ceil(tempoHoras)
-
-        if(soHoras <= 3) {
-            preco = 10;
-            return preco
-        } else {
-            preco = 10 + ((soHoras - 3) * 3)
-            return preco
-        }
-    }    
-}
 
 class Carro { 
     constructor(placa, estado, entrada, saida) {
